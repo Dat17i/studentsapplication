@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Courses at KEA</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+<h1>Courses</h1>
+<p>Courses at KEA</p>
+
+<a href="/courses/create" class="btn btn-create">Create New Course</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Start Date</th>
+        <th>ETCS</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr th:each="course : ${cou}">
+        <td th:text="${course.id}"></td>
+        <td th:text="${course.title}"></td>
+        <td th:text="${course.startDate}"></td>
+        <td th:text="${course.etcs}"></td>
+        <td><a href="/courses/details" class="btn btn-details">Details</a> <a href="/courses/edit" class="btn btn-ed">Edit</a> <a href="/courses/delete" class="btn btn-del">Delete</a>   </td>
+    </tr>
+
+    </tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+</body>
+</html>
