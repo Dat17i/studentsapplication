@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -65,6 +66,13 @@ public class StudentsController {
         model.addAttribute("student", stud);
 
         return "details";
+    }
+
+    @GetMapping("/update")
+    public String update(@RequestParam("id") int id, Model model){
+        Student stud = students.get(id-1);
+        model.addAttribute("student", stud);
+        return "update";
     }
 
 }
