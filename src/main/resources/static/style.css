@@ -108,6 +108,11 @@ input {
     box-shadow: 2px 2px 2px #888888;
 }
 
+#btn_create_margin {
+    /*margin: 0 0 120px 0;*/
+    margin-bottom: 30px;
+}
+
 .w {
     width: 20%;
 }

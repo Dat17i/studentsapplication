@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,11 +46,25 @@ public class StudentsController {
     @PostMapping("/create")
     public String create(@ModelAttribute Student student){
 
-        System.out.println(student);
-        students.add(student);
 
+        System.out.println(student);
+
+
+        students.add(student);
+        student.setId(students.size());
         return "redirect:/";
 
+    }
+
+    @GetMapping("/details")
+    public String details(@RequestParam("id") int id, Model model){
+
+        System.out.println(id);
+        Student stud = students.get(id-1);
+
+        model.addAttribute("student", stud);
+
+        return "details";
     }
 
 }

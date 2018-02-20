@@ -11,7 +11,7 @@
 <h1>Students</h1>
 <p>Students enrolled at KEA</p>
 
-<a href="/create" class="btn btn-create">Create</a>
+<a href="/create" class="btn btn-create" id="btn_create_margin">Create</a>
 
 
 <table>
@@ -32,7 +32,7 @@
             <td th:text="${student.id}"></td>
             <td th:text="${student.name}"></td>
             <td th:text="${student.lastName}"></td>
-            <td th:text="${student.enrollmentDate}"></td>
+            <td th:text="${#dates.format(student.enrollmentDate, 'yyyy-MM-dd')}"></td>
             <td th:text="${student.cpr}"></td>
             <td><a href="/details" class="btn btn-details">Details</a> <a href="/edit" class="btn btn-ed">Edit</a> <a href="/delete" class="btn btn-del">Delete</a>   </td>
         </tr>
