@@ -4,6 +4,8 @@ import clbo.students.model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,9 +39,17 @@ public class StudentsController {
     @GetMapping("/create")
     public String create(){
 
-        students.add(new Student(4, "Tove", "Toev", new Date(2017, 2, 10), "444444444"));
-
         return "create";
+    }
+
+    @PostMapping("/create")
+    public String create(@ModelAttribute Student student){
+
+        System.out.println(student);
+        students.add(student);
+
+        return "redirect:/";
+
     }
 
 }

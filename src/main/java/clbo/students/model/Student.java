@@ -1,5 +1,7 @@
 package clbo.students.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Student {
@@ -7,6 +9,7 @@ public class Student {
     private int id;
     private String name;
     private String lastName;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date EnrollmentDate;
     private String cpr;
 
