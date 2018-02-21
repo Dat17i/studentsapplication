@@ -3,15 +3,32 @@
 <head>
 
     <title>Update</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<form action="/update" method="post">
+<nav>
+    <div class="container">
+        <a href="/" id="logo">KEA</a>
+        <a href="/">Students </a>
+        <a href="/courses">Courses</a>
+    </div>
+</nav>
 
-    <input type="text" th:value="${student.name}" />
+<div class="container">
 
-</form>
+    <form action="/update" method="post">
 
+        <input type="hidden" th:field="${student.id}"/>
+        <p>First Name: <input type="text" th:field="${student.name}"/></p>
+        <p>Last Name: <input type="text" th:field="${student.lastName}"/></p>
+        <p>Enrollment date: <input type="date" th:field="${student.enrollmentDate}"/></p>
+        <p>cpr: <input type="text" th:field="${student.cpr}"/></p>
+        <input type="submit" value="Create" class="btn btn-create"/>
+
+    </form>
+
+</div>
 
 </body>
 </html>

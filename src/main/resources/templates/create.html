@@ -2,22 +2,33 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Students Administration - Create Student</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<h1>Create Student</h1>
+<nav>
+    <div class="container">
+        <a href="/" id="logo">KEA</a>
+        <a href="/">Students </a>
+        <a href="/courses">Courses</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h1>Create Student</h1>
 
 
-<form action="/create" method="post">
+    <form action="/create" method="post">
 
-    <input type="text" name="name" />
-    <input type="text" name="lastName" />
-    <input type="date" name="enrollmentDate"/>
-    <input type="text" name="cpr" />
-    <input type="submit" value="Submit"/>
-</form>
+        <p>First Name: <input type="text" name="name" /></p>
+        <p>Last Name: <input type="text" name="lastName" /></p>
+        <p>Enrollment date: <input type="date" name="enrollmentDate" /></p>
+        <p>cpr: <input type="text" name="cpr" /></p>
+        <input type="submit" value="Create" class="btn btn-create"/>
+    </form>
 
-
+</div>
 
 </body>
 </html>
