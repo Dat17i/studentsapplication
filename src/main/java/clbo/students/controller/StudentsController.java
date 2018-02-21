@@ -68,4 +68,16 @@ public class StudentsController {
         return "update";
     }
 
+    @PostMapping("/update")
+    public String update(@ModelAttribute Student student){
+
+        for (Student st : students) {
+
+            if (st.getId() == student.getId()) {
+                students.remove(st);
+                students.add(student);
+            }
+        }
+        return "redirect:/";
+    }
 }
