@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title th:text="'Details of ' + ${student.name} + ' ' + ${student.lastName}"></title>
-    <link rel="stylesheet" href="style.css" />
+    <title th:text="'Details: ' + ${student.name} + ' ' + ${student.lastName}"></title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<h1 th:text="'Details of ' + ${student.name} + ' ' + ${student.lastName}"></h1>
+<nav>
+    <div class="container">
+        <a href="/" id="logo">KEA</a>
+        <a href="/">Students </a>
+        <a href="/courses">Courses</a>
+    </div>
+</nav>
 
-<p th:text="${student.name}"></p>
+<div class="container">
+    <h1 th:text="'Details: ' + ${student.name} + ' ' + ${student.lastName}"></h1>
 
+    <p th:text="'Id: ' + ${student.id}"></p>
+    <p th:text="'First Name: ' + ${student.name}"></p>
+    <p th:text="'Last Name: ' + ${student.lastName}"></p>
+    <p th:text="'Enrollment Date: ' + ${#dates.format(student.enrollmentDate, 'yyyy-MM-dd')}"></p>
+    <p th:text="'CPR: ' + ${student.cpr}"></p>
+
+    <h2 th:text="'Enrollments for ' + ${student.name} + ' ' + ${student.lastName}"></h2>
+    <p>This content will come after we had about databases!</p>
+</div>
 </body>
 </html>
