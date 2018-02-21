@@ -22,13 +22,7 @@ public class StudentsController {
         students.add(new Student(3, "Poul", "ffffff", new Date(2017, 2, 10), "221fadsda0999999"));
 
     }
-/*
-    {
-        students.add(new Student(1, "Claus", "Bove", new Date("2017/10/11"), "2210999999"));
-        students.add(new Student(2, "Anna", "Bove", new Date(2017, 12, 12), "22199"));
-        students.add(new Student(3, "Poul", "ffffff", new Date(2017, 2, 10), "221fadsda0999999"));
 
-    }*/
 
     @GetMapping("/")
     public String index(Model model){
