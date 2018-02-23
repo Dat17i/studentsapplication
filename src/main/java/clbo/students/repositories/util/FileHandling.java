@@ -11,6 +11,8 @@ public class FileHandling {
     private Scanner scan;
     private ArrayList<Student> list = new ArrayList<>();
     private String fileName = "students.txt";
+    private String pattern = "yyyy-MM-dd";
+    private SimpleDateFormat simpleDateFormat;
 
     public FileHandling() {
         try {
@@ -18,6 +20,8 @@ public class FileHandling {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        simpleDateFormat = new SimpleDateFormat(pattern);
     }
 
     public ArrayList<Student> readFromFile() {
@@ -37,6 +41,7 @@ public class FileHandling {
     public void writeToFile(Student student) {
 
         list = readFromFile();
+        student.setId(generateRandomId());
         list.add(student);
 
         PrintStream file = null;
@@ -50,7 +55,7 @@ public class FileHandling {
 
         for (Student st : list) {
 
-            file.print(generateRandomId() + " "
+            file.print(st.getId() + " "
                     + st.getName() + " "
                     + st.getLastName() + " "
                     + formatDateToString(st.getEnrollmentDate()) + " "
@@ -64,29 +69,27 @@ public class FileHandling {
 
     }
 
-    private String formatDateToString(Date date) {
+    // Private Methods
 
-        String pattern = "yyyy-MM-dd";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+    private String formatDateToString(Date date) {
         return simpleDateFormat.format(date);
     }
 
     private Date parseStringToDate(String date) {
 
-        String pattern = "yyyy-MM-dd";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-
         try {
             return simpleDateFormat.parse(date);
         } catch (ParseException e) {
             e.printStackTrace();
-
         }
+
         return null;
     }
 
     private int generateRandomId() {
-        return 0;
+        Random r = new Random();
+        int id = r.nextInt(10000000);
+        return id;
     }
 
 }
