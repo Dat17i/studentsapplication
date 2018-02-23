@@ -18,12 +18,12 @@
 <div class="container">
 
     <h1>Are you sure you want to delete</h1>
-    <p th:text="${student.name} + ' ' + ${student.name}"></p>
+    <p th:text="${student.name} + ' ' + ${student.lastName}"></p>
 
     <form action="/delete" method="post">
         <input type="hidden" th:field="${student.id}" />
-        <input type="submit" value="YES" class="btn btn-create w"/>
-        <a href="/" class="btn btn-del w">NO</a>
+        <input type="submit" value="YES" class="btn btn-del w"/>
+        <a href="/" class="btn btn-create w">NO</a>
     </form>
 
 

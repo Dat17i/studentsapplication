@@ -43,7 +43,7 @@
             <td th:text="${student.lastName}"></td>
             <td th:text="${#dates.format(student.enrollmentDate, 'yyyy-MM-dd')}"></td>
             <td th:text="${student.cpr}"></td>
-            <td><a th:href="@{'/details?id=' + ${student.id}}" class="btn btn-details">Details</a> <a href="/update" class="btn btn-ed">Update</a> <a href="/delete" class="btn btn-del">Delete</a>   </td>
+            <td><a th:href="@{'/details?id=' + ${student.id}}" class="btn btn-details">Details</a> <a th:href="@{'/update?id=' + ${student.id}}" class="btn btn-ed">Update</a> <a th:href="@{'/delete?id=' + ${student.id}}" class="btn btn-del">Delete</a>   </td>
         </tr>
 
     </tbody>

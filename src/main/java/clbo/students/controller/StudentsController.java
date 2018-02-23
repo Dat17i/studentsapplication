@@ -17,78 +17,75 @@ import java.util.Date;
 @Controller
 public class StudentsController {
 
-   private ArrayList<Student> students = new ArrayList<>();
+    private ArrayList<Student> students = new ArrayList<>();
 
     private IStudentsRepository studentsRepository;
 
-    public StudentsController(){
-        studentsRepository = new StudentsWriteToFileRepository();
+    public StudentsController() {
+
+        // Change the "new object" to the repository you want to use
+        // (e.g StudentsWriteToFileRepository() or StudentsArrayListRepository())
+        studentsRepository = new StudentsArrayListRepository();
     }
 
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model) {
 
         model.addAttribute("stu", studentsRepository.readAll());
         return "index";
     }
 
     @GetMapping("/create")
-    public String create(){
+    public String create() {
 
         return "create";
     }
 
     @PostMapping("/create")
-    public String create(@ModelAttribute Student student){
+    public String create(@ModelAttribute Student student) {
 
         studentsRepository.create(student);
-
         return "redirect:/";
 
     }
 
     @GetMapping("/details")
-    public String details(@RequestParam("id") int id, Model model){
+    public String details(@RequestParam("id") int id, Model model) {
 
-        System.out.println(id);
-        Student stud = students.get(id-1);
-
-        model.addAttribute("student", stud);
-
+        Student student = studentsRepository.read(id);
+        model.addAttribute("student", student);
         return "details";
     }
 
     @GetMapping("/update")
-    public String update(@RequestParam("id") int id, Model model){
+    public String update(@RequestParam("id") int id, Model model) {
 
-        model.addAttribute("student", studentsRepository.read(id));
+        Student student = studentsRepository.read(id);
+        model.addAttribute("student", student);
         return "update";
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute Student student){
+    public String update(@ModelAttribute Student student) {
 
         studentsRepository.update(student);
         return "redirect:/";
     }
 
     @GetMapping("/delete")
-    public String delete(@RequestParam("id") int id, Model model){
+    public String delete(@RequestParam("id") int id, Model model) {
 
-       // Student stud = students.get(id-1);
-       // students.remove(stud.getId()-1);
-
-        Student stud = students.get(id-1);
-        model.addAttribute("student", stud);
+        Student student = studentsRepository.read(id);
+        model.addAttribute("student", student);
 
         return "delete";
     }
 
     @PostMapping("/delete")
-    public String delete(@ModelAttribute Student student){
+    public String delete(@ModelAttribute Student student) {
 
-        students.remove(student.getId()-1);
+        studentsRepository.delete(student.getId());
         return "redirect:/";
     }
 

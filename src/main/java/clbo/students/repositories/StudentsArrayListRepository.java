@@ -25,11 +25,7 @@ public class StudentsArrayListRepository implements IStudentsRepository {
 
     @Override
     public Student read(int id) {
-
-        // Specific write to arraylist code
-
-        Student stud = students.get(id-1);
-        return stud;
+        return students.get(id - 1);
     }
 
     @Override
@@ -52,6 +48,10 @@ public class StudentsArrayListRepository implements IStudentsRepository {
 
     @Override
     public void delete(int id) {
+        // here the "id" is maybe 1, and student number 1 would be at index number 0 in the list.
+        // Therefor in order to delete the student with id number 1 you deduct 1 to the get the index
 
+        System.out.println(students.get(id-1));
+        students.remove(id-1);
     }
 }
