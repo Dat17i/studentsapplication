@@ -2,8 +2,7 @@ package clbo.students.controller;
 
 import clbo.students.model.Student;
 import clbo.students.repositories.IStudentsRepository;
-import clbo.students.repositories.StudentsArrayListRepository;
-import clbo.students.repositories.StudentsWriteToFileRepository;
+import clbo.students.repositories.StudentsFileRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 @Controller
 public class StudentsController {
@@ -24,8 +22,8 @@ public class StudentsController {
     public StudentsController() {
 
         // Change the "new object" to the repository you want to use
-        // (e.g StudentsWriteToFileRepository() or StudentsArrayListRepository())
-        studentsRepository = new StudentsArrayListRepository();
+        // (e.g StudentsFileRepository() or StudentsArrayListRepository())
+        studentsRepository = new StudentsFileRepository(); //StudentsArrayListRepository();
     }
 
 

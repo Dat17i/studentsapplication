@@ -8,6 +8,7 @@ import java.util.*;
 import java.io.*;
 
 public class FileHandling {
+    private PrintStream file;
     private Scanner scan;
     private ArrayList<Student> list = new ArrayList<>();
     private String fileName = "students.txt";
@@ -39,21 +40,40 @@ public class FileHandling {
 
 
     public void writeToFile(Student student) {
-
         list = readFromFile();
         student.setId(generateRandomId());
         list.add(student);
 
-        PrintStream file = null;
         try {
             file = new PrintStream(new File(fileName));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
+        writeListToFile(list);
+
+    }
+
+
+    public void writeToFile(ArrayList<Student> students) {
+
+        try {
+            file = new PrintStream(new File(fileName));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        writeListToFile(students);
+
+    }
+
+    // Private Methods
+
+    private void writeListToFile(ArrayList<Student> students) {
+
         int counter = 1;
 
-        for (Student st : list) {
+        for (Student st : students) {
 
             file.print(st.getId() + " "
                     + st.getName() + " "
@@ -61,15 +81,12 @@ public class FileHandling {
                     + formatDateToString(st.getEnrollmentDate()) + " "
                     + st.getCpr());
 
-            if (list.size() != counter) {
+            if (students.size() != counter) {
                 file.println();
             }
             counter++;
         }
-
     }
-
-    // Private Methods
 
     private String formatDateToString(Date date) {
         return simpleDateFormat.format(date);
