@@ -5,6 +5,7 @@
 
 #### History:
 
+* [01-03-2018: After teachings](https://github.com/Dat17i/studentsapplication/tree/at_1_03_2018)
 * [27-02-2018: After teachings](https://github.com/Dat17i/06_code_from_teachings) - This is not part of this project, but shows how to connect MySql and Java
 * [27-02-2018: Before teachings](https://github.com/Dat17i/studentsapplication/tree/bf_27_02_2018)
 * [22-02-2018: After teachings](https://github.com/Dat17i/studentsapplication/tree/at_22_02_2018)
