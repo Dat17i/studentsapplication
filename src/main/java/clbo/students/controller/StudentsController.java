@@ -2,6 +2,7 @@ package clbo.students.controller;
 
 import clbo.students.model.Student;
 import clbo.students.repositories.IStudentsRepository;
+import clbo.students.repositories.StudentsDbRepository;
 import clbo.students.repositories.StudentsFileRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +24,7 @@ public class StudentsController {
 
         // Change the "new object" to the repository you want to use
         // (e.g StudentsFileRepository() or StudentsArrayListRepository())
-        studentsRepository = new StudentsFileRepository(); //StudentsArrayListRepository();
+        studentsRepository = new StudentsDbRepository(); //StudentsArrayListRepository();
     }
 
 
