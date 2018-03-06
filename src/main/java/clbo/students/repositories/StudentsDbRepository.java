@@ -3,13 +3,11 @@ package clbo.students.repositories;
 import clbo.students.model.Student;
 import clbo.students.repositories.util.DbConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
-public class StudentsDbRepository implements IStudentsRepository {
+public class StudentsDbRepository implements IStudentsRepository{
+
 
     private Connection conn;
     private PreparedStatement preparedStatement;
@@ -30,7 +28,7 @@ public class StudentsDbRepository implements IStudentsRepository {
             result = preparedStatement.executeQuery();
 
             while (result.next()){
-                students.add(new Student(result.getInt("id"), result.getString("first_name"), result.getString("last_name"), result.getDate("enrollment_date"), result.getString("cpr") ));
+                students.add(new Student(result.getInt("id"), result.getString("first_name"), result.getString("last_name"), result.getDate("enrollment_date").toLocalDate(), result.getString("cpr") ));
             }
 
         } catch (SQLException e) {
@@ -54,7 +52,7 @@ public class StudentsDbRepository implements IStudentsRepository {
 
             preparedStatement.setString(1, student.getName());
             preparedStatement.setString(2, student.getLastName());
-            preparedStatement.setDate(3, student.getEnrollmentDate());
+            preparedStatement.setDate(3, Date.valueOf(student.getEnrollmentDate()));
             preparedStatement.setString(4, student.getCpr());
 
             preparedStatement.execute();
