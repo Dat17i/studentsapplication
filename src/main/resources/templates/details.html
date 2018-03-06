@@ -20,7 +20,7 @@
     <p th:text="'Id: ' + ${student.id}"></p>
     <p th:text="'First Name: ' + ${student.name}"></p>
     <p th:text="'Last Name: ' + ${student.lastName}"></p>
-    <p th:text="'Enrollment Date: ' + ${#dates.format(student.enrollmentDate, 'yyyy-MM-dd')}"></p>
+    <p th:text="'Enrollment Date: ' + ${student.enrollmentDate}"></p>
     <p th:text="'CPR: ' + ${student.cpr}"></p>
 
     <h2 th:text="'Enrollments for ' + ${student.name} + ' ' + ${student.lastName}"></h2>

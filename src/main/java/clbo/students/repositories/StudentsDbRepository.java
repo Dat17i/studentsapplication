@@ -40,6 +40,20 @@ public class StudentsDbRepository implements IStudentsRepository{
 
     @Override
     public Student read(int id) {
+
+        try {
+            preparedStatement = conn.prepareStatement("SELECT * FROM students WHERE students.id = id");
+            result = preparedStatement.executeQuery();
+
+            if (result.next()){
+                return new Student(result.getInt("id"), result.getString("first_name"), result.getString("last_name"), result.getDate("enrollment_date").toLocalDate(), result.getString("cpr"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
         return null;
     }
 
