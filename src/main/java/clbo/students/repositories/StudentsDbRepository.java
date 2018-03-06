@@ -61,18 +61,41 @@ public class StudentsDbRepository implements IStudentsRepository{
             e.printStackTrace();
 
         }
-
-        // Test
-
     }
 
     @Override
     public void update(Student student) {
 
+        try {
+            preparedStatement = conn.prepareStatement("UPDATE students SET first_name = ?, last_name = ?, enrollment_date = ?, cpr = ? WHERE id = ?");
+            preparedStatement.setString(1, student.getName());
+            preparedStatement.setString(2, student.getLastName());
+            preparedStatement.setDate(3, Date.valueOf(student.getEnrollmentDate()));
+            preparedStatement.setString(4, student.getCpr());
+            preparedStatement.setInt(5, student.getId());
+
+            // do it
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
     public void delete(int id) {
+
+        try {
+            preparedStatement = conn.prepareStatement("DELETE FROM students WHERE id = ?");
+            preparedStatement.setInt(1, id);
+
+            // do it
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 }
