@@ -2,6 +2,7 @@ package clbo.students.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Student {
@@ -10,14 +11,14 @@ public class Student {
     private String name;
     private String lastName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date EnrollmentDate;
+    private LocalDate EnrollmentDate;
     private String cpr;
 
 
     public Student() {
     }
 
-    public Student(int id, String name, String lastName, Date enrollmentDate, String cpr) {
+    public Student(int id, String name, String lastName, LocalDate enrollmentDate, String cpr) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -49,11 +50,11 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public Date getEnrollmentDate() {
+    public LocalDate getEnrollmentDate() {
         return EnrollmentDate;
     }
 
-    public void setEnrollmentDate(Date enrollmentDate) {
+    public void setEnrollmentDate(LocalDate enrollmentDate) {
         EnrollmentDate = enrollmentDate;
     }
 

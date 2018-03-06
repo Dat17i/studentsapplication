@@ -30,7 +30,7 @@ public class StudentsDbRepository implements IStudentsRepository {
             result = preparedStatement.executeQuery();
 
             while (result.next()){
-                students.add(new Student(result.getInt("id"), result.getString("first_name"), result.getString("last_name"), result.getDate("enrollment_date"), result.getString("cpr") ));
+                students.add(new Student(result.getInt("id"), result.getString("first_name"), result.getString("last_name"), result.getDate("enrollment_date").toLocalDate(), result.getString("cpr") ));
             }
 
         } catch (SQLException e) {

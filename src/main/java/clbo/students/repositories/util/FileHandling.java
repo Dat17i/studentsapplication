@@ -28,13 +28,13 @@ public class FileHandling {
     public ArrayList<Student> readFromFile() {
 
         list.clear();
-
+/*
         while (scan.hasNextLine()) {
 
             list.add(new Student(scan.nextInt(), scan.next(), scan.next(), parseStringToDate(scan.next()), scan.next()));
 
         }
-
+*/
         return list;
     }
 
@@ -72,7 +72,7 @@ public class FileHandling {
     private void writeListToFile(ArrayList<Student> students) {
 
         int counter = 1;
-
+/*
         for (Student st : students) {
 
             file.print(st.getId() + " "
@@ -86,6 +86,7 @@ public class FileHandling {
             }
             counter++;
         }
+        */
     }
 
     private String formatDateToString(Date date) {
