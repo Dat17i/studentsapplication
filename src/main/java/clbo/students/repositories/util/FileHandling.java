@@ -29,7 +29,9 @@ public class FileHandling {
 
         list.clear();
 
-     /*   while (scan.hasNextLine()) {
+/*
+        while (scan.hasNextLine()) {
+
 
             list.add(new Student(scan.nextInt(), scan.next(), scan.next(), parseStringToDate(scan.next()), scan.next()));
 
@@ -73,7 +75,9 @@ public class FileHandling {
 
         int counter = 1;
 
-      /*  for (Student st : students) {
+/*
+        for (Student st : students) {
+
 
             file.print(st.getId() + " "
                     + st.getName() + " "
@@ -85,6 +89,7 @@ public class FileHandling {
                 file.println();
             }
             counter++;
+
         }*/
     }
 
