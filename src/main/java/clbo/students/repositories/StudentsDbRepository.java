@@ -48,6 +48,22 @@ public class StudentsDbRepository implements IStudentsRepository {
     @Override
     public void create(Student student) {
 
+        try {
+
+            preparedStatement = conn.prepareStatement("INSERT INTO students(first_name, last_name, enrollment_date, cpr)  VALUES (?,?,?, ?)");
+
+            preparedStatement.setString(1, student.getName());
+            preparedStatement.setString(2, student.getLastName());
+            preparedStatement.setDate(3, student.getEnrollmentDate());
+            preparedStatement.setString(4, student.getCpr());
+
+            preparedStatement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
     }
 
     @Override
