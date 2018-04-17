@@ -1,18 +1,22 @@
 package clbo.students.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Course {
 
     private int id;
     private String title;
-    private Date startDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate startDate;
     private int etcs;
 
     public Course() {
     }
 
-    public Course(int id, String title, Date startDate, int etcs) {
+    public Course(int id, String title, LocalDate startDate, int etcs) {
         this.id = id;
         this.title = title;
         this.startDate = startDate;
@@ -35,11 +39,11 @@ public class Course {
         this.title = title;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
